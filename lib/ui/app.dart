@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_project/ui/pages/home_page.dart';
+import 'package:new_project/ui/screen/cadr_page.dart';
+import 'package:new_project/ui/screen/home_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -12,6 +13,10 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
       ),
       home: const HomePage(),
+      routes: {
+        'ui/pages/card_page': (context) => CardPage(),
+      },
+      initialRoute: 'ui/pages/home_page',
     );
   }
 }
