@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
-                              width: 300,
+                              width: MediaQuery.of(context).size.width * 0.6,
                               child: Text(
                                 state.serials[index].title,
                                 overflow: TextOverflow.clip,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:new_project/domain/serial_notifier.dart';
 import 'package:provider/provider.dart';
 
@@ -15,56 +16,73 @@ class CardPage extends StatelessWidget {
         body: ListView.builder(
           itemCount: state.cards.length,
           itemBuilder: ((context, index) {
-            return Card(
-              color:
-                  (index % 2 == 0) ? Colors.blueGrey[50] : Colors.blueGrey[100],
-              child: Row(
+            return Slidable(
+              endActionPane: ActionPane(
+                extentRatio: 0.3,
+                motion: const ScrollMotion(),
                 children: [
-                  ClipOval(
-                      child: Image.asset(
-                          'assets/images/${state.cards[index].id + 1}.gif')),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          width: 300,
-                          child: Text(
-                            state.cards[index].title,
-                            overflow: TextOverflow.clip,
-                            maxLines: 1,
-                            softWrap: false,
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontStyle: FontStyle.italic,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            const Text(
-                              '\$',
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(width: 2),
-                            Text(
-                              state.cards[index].price.toString(),
-                              style: const TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                  SlidableAction(
+                    onPressed: ((context) {
+                      state.deleteOneSerialToCard(index);
+                    }),
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                    icon: Icons.remove,
                   ),
                 ],
+              ),
+              child: Card(
+                color: (index % 2 == 0)
+                    ? Colors.blueGrey[50]
+                    : Colors.blueGrey[100],
+                child: Row(
+                  children: [
+                    ClipOval(
+                        child: Image.asset(
+                            'assets/images/${state.cards[index].id + 1}.gif')),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.6,
+                            child: Text(
+                              state.cards[index].title,
+                              overflow: TextOverflow.clip,
+                              maxLines: 1,
+                              softWrap: false,
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            children: [
+                              const Text(
+                                '\$',
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(width: 2),
+                              Text(
+                                state.cards[index].price.toString(),
+                                style: const TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           }),

@@ -31,6 +31,11 @@ class SerialNotifier with ChangeNotifier {
     notifyListeners();
   }
 
+  void deleteOneSerialToCard(int index) {
+    cards.removeAt(index);
+    notifyListeners();
+  }
+
   void deleteAllSerialToCard() {
     cards.clear();
 

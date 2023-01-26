@@ -8,14 +8,6 @@ class Serial {
 
   const Serial({required this.id, required this.title, required this.price});
 
-  // @override
-  // int get hashCode => id;
-
-  // @override
-  // bool operator ==(Object other) => other is Serial && other.id == id;
-
-  // Serial getById(int id) => Serial(id, itemNames[id % itemNames.length]);
-
   Serial copyWith({int? id, String? title, int? price}) {
     return Serial(
       id: id ?? this.id,
@@ -35,6 +27,4 @@ class Serial {
           id == other.id &&
           title == other.title &&
           price == other.price;
-
-  // String get serialId => serial.map((e) => e.id).toList();;
 }

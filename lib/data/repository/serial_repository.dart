@@ -12,16 +12,16 @@ class ConstSerialsRepository extends SerialRepository {
   const ConstSerialsRepository();
 
   static const List<Serial> _allSerial = [
-    Serial(id: 0, title: 'Fullmetal Alchemist: Brotherfood', price: 120),
-    Serial(id: 1, title: 'Cowboy Bebop', price: 324),
-    Serial(id: 2, title: 'One Piece', price: 123),
-    Serial(id: 3, title: 'Monster', price: 342),
-    Serial(id: 4, title: 'Hajime no Ippo', price: 231),
-    Serial(id: 5, title: 'Mob Psycho 100', price: 111),
-    Serial(id: 6, title: 'Hunter x Hunter', price: 234),
-    Serial(id: 7, title: 'Neon Genesis Evangelion', price: 344),
-    Serial(id: 8, title: 'FLCL', price: 453),
-    Serial(id: 9, title: 'Baccano', price: 564),
+    Serial(id: 0, title: 'Suzumiya Haruhi no Yûutsu', price: 120),
+    Serial(id: 1, title: 'Aa! Megamisama!', price: 324),
+    Serial(id: 2, title: 'Erufen rito', price: 123),
+    Serial(id: 3, title: 'Bleach', price: 342),
+    Serial(id: 4, title: 'Golden Boy', price: 231),
+    Serial(id: 5, title: 'FLCL', price: 111),
+    Serial(id: 6, title: 'K-On!', price: 234),
+    Serial(id: 7, title: 'Fullmetal Alchemist: Brotherhood', price: 344),
+    Serial(id: 8, title: 'Herushingu', price: 453),
+    Serial(id: 9, title: 'Lucky Star', price: 564),
   ];
 
   @override
