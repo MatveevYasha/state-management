@@ -8,19 +8,8 @@ class HomePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final count = ref.watch(counterProvider);
-
-    // final serial = (serialsProvider);
-    // final isLoaded = (loadingProvider);
-
     final serial = ref.watch(serialsProvider);
-    // final isLoaded = ref.watch(loadingProvider);
-    // final card = ref.watch(cardProvider);
 
-    // return Consumer<SerialNotifier>(builder: (context, state, child) {
-    // if (!isLoaded) {
-    //   return const CircularProgressIndicator();
-    // } else {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Список товаров'),
