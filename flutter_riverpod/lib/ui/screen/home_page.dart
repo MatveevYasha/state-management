@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:new_project/domain/card_provider.dart';
 import 'package:new_project/domain/serial_provider.dart';
 
 class HomePage extends ConsumerWidget {
@@ -9,6 +10,7 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final serial = ref.watch(serialsProvider);
+    final card = ref.watch(cardProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -25,7 +27,7 @@ class HomePage extends ConsumerWidget {
                 SlidableAction(
                   onPressed: ((context) {
                     ref
-                        .read(serialsProvider.notifier)
+                        .read(cardProvider.notifier)
                         .addSerialToCard(serial[index]);
                   }),
                   backgroundColor: Colors.green,
@@ -90,9 +92,7 @@ class HomePage extends ConsumerWidget {
         }),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: (ref.watch(serialsProvider.notifier).cards.isNotEmpty)
-            ? Colors.grey
-            : Colors.green,
+        backgroundColor: (card.isEmpty) ? Colors.grey : Colors.green,
         onPressed: () {
           Navigator.of(context).pushNamed('ui/pages/card_page');
         },

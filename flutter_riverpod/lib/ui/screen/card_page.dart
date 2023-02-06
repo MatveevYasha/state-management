@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:new_project/domain/card_provider.dart';
 
 import '../../domain/serial_provider.dart';
 
@@ -9,7 +10,7 @@ class CardPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final card = ref.watch(serialsProvider.notifier).cards;
+    final card = ref.watch(cardProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -26,7 +27,7 @@ class CardPage extends ConsumerWidget {
                 SlidableAction(
                   onPressed: ((context) {
                     ref
-                        .read(serialsProvider.notifier)
+                        .read(cardProvider.notifier)
                         .deleteOneSerialToCard(index);
                   }),
                   backgroundColor: Colors.red,
@@ -136,7 +137,7 @@ class CardPage extends ConsumerWidget {
               alignment: Alignment.topRight,
               child: GestureDetector(
                 onTap: () {
-                  ref.read(serialsProvider.notifier).deleteAllSerialToCard();
+                  ref.read(cardProvider.notifier).deleteAllSerialToCard();
                 },
                 child: Container(
                   height: 60,
