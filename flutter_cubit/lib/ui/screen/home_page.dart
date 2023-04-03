@@ -5,10 +5,6 @@ import 'package:new_project/cubit/serials_block.dart';
 import 'package:new_project/data/models/serial.dart';
 import 'package:new_project/data/models/state/serials_state.dart';
 
-import '../../actions/actions.dart';
-// import 'package:new_project/domain/serial_notifier.dart';
-// import 'package:provider/provider.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 

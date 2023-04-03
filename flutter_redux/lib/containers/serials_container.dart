@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:new_project/actions/actions.dart' as Actions;
 import 'package:new_project/data/models/serial.dart';
 import 'package:new_project/models/app_state.dart';
 import 'package:new_project/ui/screen/home_page.dart';
@@ -13,6 +14,9 @@ class SerialsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, _ViewModel>(
+      onInit: (store) {
+        store.dispatch(Actions.LoadSerialsAction());
+      },
       converter: _ViewModel.fromStore,
       builder: (context, vm) {
         return SerialsList(

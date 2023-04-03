@@ -1,7 +1,3 @@
-// import 'package:rating_redux/models/app_tab.dart';
-// import 'package:rating_redux/models/filter.dart';
-// import 'package:rating_redux/models/speaker.dart';
-// import 'package:rating_redux/models/talk.dart';
 import 'package:meta/meta.dart';
 import 'package:new_project/data/models/serial.dart';
 

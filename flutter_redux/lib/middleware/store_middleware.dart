@@ -1,10 +1,6 @@
 import 'package:new_project/actions/actions.dart';
 import 'package:new_project/data/repository/serial_repository.dart';
 import 'package:new_project/models/app_state.dart';
-// import 'package:rating_redux/actions/actions.dart';
-// import 'package:rating_redux/models/app_state.dart';
-// import 'package:rating_redux/repository/speakers_repository.dart';
-// import 'package:rating_redux/repository/talks_repository.dart';
 import 'package:redux/redux.dart';
 
 List<Middleware<AppState>> createStoreMiddleware([
@@ -33,6 +29,8 @@ List<Middleware<AppState>> createStoreMiddleware([
 
 Middleware<AppState> _createLoadSerials(SerialRepository repository) {
   return (Store<AppState> store, action, NextDispatcher next) {
+    // var rep = await repository.loadSerial();
+
     repository
         .loadSerial()
         .then((serials) => store.dispatch(

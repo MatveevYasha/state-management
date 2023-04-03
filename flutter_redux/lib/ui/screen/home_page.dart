@@ -7,10 +7,8 @@ import 'package:new_project/containers/serials_container.dart';
 import 'package:new_project/data/models/serial.dart';
 import 'package:new_project/data/models/state/serials_state.dart';
 
-import '../../actions/actions.dart';
-// / import 'package:new_project/domain/serial_notifier.dart';
-// import 'package:provider/provider.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:new_project/models/app_state.dart';
 import 'package:redux/redux.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,12 +19,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    // context.read<SerialsCubit>().loadSerial();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

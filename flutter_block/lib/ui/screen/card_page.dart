@@ -4,7 +4,6 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:new_project/actions/actions.dart';
 import 'package:new_project/blocks/serials_block.dart';
 import 'package:new_project/data/models/state/serials_state.dart';
-import 'package:new_project/domain/serial_notifier.dart';
 import 'package:provider/provider.dart';
 
 class CardPage extends StatelessWidget {
