@@ -55,13 +55,21 @@ class SerialsList extends StatelessWidget {
             extentRatio: 0.3,
             motion: const ScrollMotion(),
             children: [
-              SlidableAction(
-                onPressed: ((context) {
-                  // context.read<SerialsCubit>().addSerialToCard(index);
-                }),
-                backgroundColor: Colors.green,
-                foregroundColor: Colors.white,
-                icon: Icons.delete,
+              StoreConnector<int, VoidCallback>(
+                converter: (store) {
+                  return store.dispatch(Actions.AddSerialToCard(index));
+                },
+                builder: (context, callback) {
+                  return SlidableAction(
+                    onPressed: ((context) {
+                      callback;
+                      // context.read<SerialsCubit>().addSerialToCard(index);
+                    }),
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                    icon: Icons.delete,
+                  );
+                },
               ),
             ],
           ),
