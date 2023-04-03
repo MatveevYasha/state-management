@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:new_project/blocks/serials_block.dart';
 import 'package:new_project/data/models/state/serials_state.dart';
+
+import '../../actions/actions.dart';
 // import 'package:new_project/domain/serial_notifier.dart';
 // import 'package:provider/provider.dart';
 
@@ -19,11 +21,9 @@ class _HomePageState extends State<HomePage> {
     return BlocBuilder<SerialsBloc, SerialsState>(
       builder: (context, state) {
         if (state.isLoading == false) {
-          return const CircularProgressIndicator();
+          return const Material(
+              child: Center(child: CircularProgressIndicator()));
         }
-        print(state);
-        print(state.serials);
-
         return Scaffold(
           appBar: AppBar(
             title: const Text('Список товаров'),
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     SlidableAction(
                       onPressed: ((context) {
-                        // state.addSerialToCard(state.serials[index]);
+                        context.read<SerialsBloc>().add(AddSerialToCard(index));
                       }),
                       backgroundColor: Colors.green,
                       foregroundColor: Colors.white,
@@ -103,8 +103,8 @@ class _HomePageState extends State<HomePage> {
             }),
           ),
           floatingActionButton: FloatingActionButton.extended(
-            // backgroundColor: (state.cards.isEmpty) ? Colors.grey : Colors.green,
-            backgroundColor: Colors.grey,
+            backgroundColor: (state.cards.isEmpty) ? Colors.grey : Colors.green,
+            // backgroundColor: Colors.grey,
             onPressed: () {
               Navigator.of(context).pushNamed('ui/pages/card_page');
             },

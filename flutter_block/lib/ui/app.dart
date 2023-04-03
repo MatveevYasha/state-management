@@ -14,9 +14,10 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final serialsRepo = ConstSerialsRepository();
+    const serialsRepo = ConstSerialsRepository();
     return BlocProvider<SerialsBloc>(
-      create: (BuildContext context) => SerialsBloc(serialsRepo),
+      create: (BuildContext context) =>
+          SerialsBloc(serialsRepo)..add(LoadSerialsAction()),
       child: MaterialApp(
         title: 'Flutter State Management',
         theme: ThemeData(
@@ -24,7 +25,7 @@ class App extends StatelessWidget {
         ),
         home: const HomePage(),
         routes: {
-          // 'ui/pages/card_page': (context) => const CardPage(),
+          'ui/pages/card_page': (context) => const CardPage(),
         },
         initialRoute: 'ui/pages/home_page',
       ),
