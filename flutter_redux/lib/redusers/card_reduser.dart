@@ -9,7 +9,14 @@ final cardReducer = combineReducers<List<Serial>>([
 ]);
 
 List<Serial> _addSerial(List<Serial> serials, AddSerialToCard action) {
+  print(action.index);
   return [];
+  // return serials.map((e) => e.id == action.index ? ).toList();
+  // return serials.map((serial) => serial.id == action.index)
+  //   return cards
+  //     .map((speaker) =>
+  //         speaker.id == action.id ? action.updatedSpeaker : speaker)
+  //     .toList();
 }
 
 List<Serial> _removeOneSerials(

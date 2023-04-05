@@ -29,8 +29,6 @@ List<Middleware<AppState>> createStoreMiddleware([
 
 Middleware<AppState> _createLoadSerials(SerialRepository repository) {
   return (Store<AppState> store, action, NextDispatcher next) {
-    // var rep = await repository.loadSerial();
-
     repository
         .loadSerial()
         .then((serials) => store.dispatch(

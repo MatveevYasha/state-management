@@ -26,10 +26,10 @@ class App extends StatelessWidget {
           primarySwatch: Colors.blueGrey,
         ),
         home: const HomePage(),
-        // routes: {
-        //   'ui/pages/card_page': (context) => const CardPage(),
-        // },
-        // initialRoute: 'ui/pages/home_page',
+        routes: {
+          'ui/pages/card_page': (context) => const CardPage(),
+        },
+        initialRoute: 'ui/pages/home_page',
       ),
     );
   }

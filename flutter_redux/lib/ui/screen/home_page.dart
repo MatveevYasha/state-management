@@ -21,13 +21,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final store = StoreProvider.of<AppState>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Список товаров'),
       ),
       body: SerialsContainer(),
       floatingActionButton: FloatingActionButton.extended(
-        // backgroundColor: (state.cards.isEmpty) ? Colors.grey : Colors.green,
+        backgroundColor:
+            (store.state.card.isEmpty) ? Colors.grey : Colors.green,
         onPressed: () {
           Navigator.of(context).pushNamed('ui/pages/card_page');
         },
@@ -47,6 +49,7 @@ class SerialsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final store = StoreProvider.of<AppState>(context);
     return ListView.builder(
       itemCount: serials.length,
       itemBuilder: ((context, index) {
@@ -55,21 +58,16 @@ class SerialsList extends StatelessWidget {
             extentRatio: 0.3,
             motion: const ScrollMotion(),
             children: [
-              StoreConnector<int, VoidCallback>(
-                converter: (store) {
-                  return store.dispatch(Actions.AddSerialToCard(index));
-                },
-                builder: (context, callback) {
-                  return SlidableAction(
-                    onPressed: ((context) {
-                      callback;
-                      // context.read<SerialsCubit>().addSerialToCard(index);
-                    }),
-                    backgroundColor: Colors.green,
-                    foregroundColor: Colors.white,
-                    icon: Icons.delete,
-                  );
-                },
+              StoreProvider(
+                store: store,
+                child: SlidableAction(
+                  onPressed: ((context) {
+                    store.dispatch(Actions.AddSerialToCard(index));
+                  }),
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  icon: Icons.delete,
+                ),
               ),
             ],
           ),
