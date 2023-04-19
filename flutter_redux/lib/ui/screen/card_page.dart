@@ -7,6 +7,7 @@ import 'package:new_project/data/models/serial.dart';
 import 'package:new_project/data/models/state/serials_state.dart';
 import 'package:new_project/models/app_state.dart';
 import 'package:redux/src/store.dart';
+import 'package:new_project/actions/actions.dart' as Actions;
 
 class CardPage extends StatelessWidget {
   const CardPage({Key? key}) : super(key: key);
@@ -82,7 +83,8 @@ class MyBottomNavigationBar extends StatelessWidget {
             alignment: Alignment.topRight,
             child: GestureDetector(
               onTap: () {
-                // context.read<SerialsCubit>().removeAllSerialToCard();
+                store.dispatch(Actions.RemoveAllSerialToCard);
+                // store.dispatch(Actions.AddSerialToCard(index, serials));
               },
               child: Container(
                 height: 60,

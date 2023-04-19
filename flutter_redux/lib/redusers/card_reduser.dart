@@ -13,7 +13,7 @@ List<Serial> _addSerial(List<Serial> serials, AddSerialToCard action) {
   List<Serial> card = [];
   action.serials.map((e) => e.id == action.index ? card.add(e) : null).toList();
 
-  return card;
+  return [...serials, ...card];
 }
 
 List<Serial> _removeOneSerials(
