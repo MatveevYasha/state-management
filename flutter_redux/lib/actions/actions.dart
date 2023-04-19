@@ -15,9 +15,10 @@ class SerialsLoadedAction extends SerialsAction {
 }
 
 class AddSerialToCard extends SerialsAction {
+  final List<Serial> serials;
   final int index;
 
-  AddSerialToCard(this.index);
+  AddSerialToCard(this.index, this.serials);
 }
 
 class RemoveOneSerialToCard extends SerialsAction {

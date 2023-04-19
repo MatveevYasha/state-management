@@ -62,7 +62,7 @@ class SerialsList extends StatelessWidget {
                 store: store,
                 child: SlidableAction(
                   onPressed: ((context) {
-                    store.dispatch(Actions.AddSerialToCard(index));
+                    store.dispatch(Actions.AddSerialToCard(index, serials));
                   }),
                   backgroundColor: Colors.green,
                   foregroundColor: Colors.white,
