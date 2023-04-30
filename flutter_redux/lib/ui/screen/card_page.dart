@@ -83,9 +83,7 @@ class MyBottomNavigationBar extends StatelessWidget {
             alignment: Alignment.topRight,
             child: GestureDetector(
               onTap: () {
-                print(store.state.card);
-                store.dispatch(Actions.RemoveAllSerialToCard);
-                // store.dispatch(Actions.AddSerialToCard(index, serials));
+                store.dispatch(Actions.RemoveAllSerialToCard());
               },
               child: Container(
                 height: 60,
@@ -131,7 +129,7 @@ class CardList extends StatelessWidget {
             children: [
               SlidableAction(
                 onPressed: ((context) {
-                  // context.read<SerialsCubit>().removeOneSerialToCard(index);
+                  store.dispatch(Actions.RemoveOneSerialToCard(index));
                 }),
                 backgroundColor: Colors.red,
                 foregroundColor: Colors.white,

@@ -18,11 +18,11 @@ List<Serial> _addSerial(List<Serial> serials, AddSerialToCard action) {
 
 List<Serial> _removeOneSerials(
     List<Serial> serials, RemoveOneSerialToCard action) {
-  return [];
+  serials.removeAt(action.index);
+  return serials;
 }
 
 List<Serial> _removeAllSerials(
     List<Serial> serials, RemoveAllSerialToCard action) {
-  print('_removeAllSerials');
   return [];
 }
