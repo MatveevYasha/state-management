@@ -23,5 +23,6 @@ List<Serial> _removeOneSerials(
 
 List<Serial> _removeAllSerials(
     List<Serial> serials, RemoveAllSerialToCard action) {
+  print('_removeAllSerials');
   return [];
 }

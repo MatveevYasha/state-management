@@ -83,6 +83,7 @@ class MyBottomNavigationBar extends StatelessWidget {
             alignment: Alignment.topRight,
             child: GestureDetector(
               onTap: () {
+                print(store.state.card);
                 store.dispatch(Actions.RemoveAllSerialToCard);
                 // store.dispatch(Actions.AddSerialToCard(index, serials));
               },

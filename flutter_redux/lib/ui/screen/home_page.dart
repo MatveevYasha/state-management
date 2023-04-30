@@ -69,6 +69,18 @@ class SerialsList extends StatelessWidget {
                   icon: Icons.delete,
                 ),
               ),
+              StoreProvider(
+                store: store,
+                child: SlidableAction(
+                  onPressed: ((context) {
+                    print('tap');
+                    store.dispatch(Actions.RemoveAllSerialToCard);
+                  }),
+                  backgroundColor: Colors.red,
+                  foregroundColor: Colors.white,
+                  icon: Icons.add,
+                ),
+              ),
             ],
           ),
           child: Card(
